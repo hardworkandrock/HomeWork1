@@ -1,7 +1,6 @@
-﻿namespace AccountService.Infrastructure.Interface
+﻿namespace AccountService.Infrastructure.Interface;
+
+public interface IClientVerificationService
 {
-    public interface IClientVerificationService
-    {
-        Task<bool> ExistsAsync(Guid ownerId, CancellationToken ct);
-    }
+    Task<bool> ExistsAsync(Guid ownerId, CancellationToken ct);
 }

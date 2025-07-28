@@ -1,12 +1,10 @@
+using System.Reflection;
 using AccountService.App.Validators;
-using AccountService.Data;
 using AccountService.Infrastructure;
 using AccountService.Infrastructure.Interface;
 using FluentValidation;
-using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,7 +38,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 
     // ¬ключаем XML-комментарии (если есть)
-    var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     if (File.Exists(xmlPath))
         c.IncludeXmlComments(xmlPath);
@@ -89,7 +87,8 @@ app.UseExceptionHandler(c => c.Run(async context =>
     }
 }));
 
-app.UseHttpsRedirection();
+
+// app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 

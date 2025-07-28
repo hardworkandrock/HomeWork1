@@ -1,17 +1,16 @@
 ﻿using AccountService.Infrastructure.Interface;
 
-namespace AccountService.Infrastructure
+namespace AccountService.Infrastructure;
+
+public class InMemoryCurrencyService : ICurrencyService
 {
-    public class InMemoryCurrencyService : ICurrencyService
-    {
-        private readonly HashSet<string> _supportedCurrencies = new(StringComparer.OrdinalIgnoreCase)
+    private readonly HashSet<string> _supportedCurrencies = new(StringComparer.OrdinalIgnoreCase)
     {
         "RUB", "USD", "EUR", "KZT", "CNY"
     };
 
-        public Task<bool> IsSupportedAsync(string currency, CancellationToken ct)
-        {
-            return Task.FromResult(_supportedCurrencies.Contains(currency));
-        }
+    public Task<bool> IsSupportedAsync(string currency, CancellationToken ct)
+    {
+        return Task.FromResult(_supportedCurrencies.Contains(currency));
     }
 }

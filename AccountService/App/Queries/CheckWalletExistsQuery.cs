@@ -1,8 +1,6 @@
-﻿using AccountService.Data;
-using Common.Src;
+﻿using Common.Src;
 using MediatR;
 
-namespace AccountService.App.Queries
-{
-    public record CheckWalletExistsQuery(Guid OwnerId, TypeWallet Type) : IRequest<bool>; 
-}
+namespace AccountService.App.Queries;
+
+public record CheckWalletExistsQuery(Guid OwnerId, TypeWallet Type) : IRequest<bool>;

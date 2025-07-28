@@ -1,7 +1,6 @@
-﻿namespace AccountService.Infrastructure.Interface
+﻿namespace AccountService.Infrastructure.Interface;
+
+public interface ICurrencyService
 {
-    public interface ICurrencyService
-    {
-        Task<bool> IsSupportedAsync(string currency, CancellationToken ct);
-    }
+    Task<bool> IsSupportedAsync(string currency, CancellationToken ct);
 }

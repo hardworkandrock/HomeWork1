@@ -1,9 +1,8 @@
 ﻿using Common.Src;
 
-namespace AccountService.Infrastructure.Interface
+namespace AccountService.Infrastructure.Interface;
+
+public interface IOwnerService
 {
-    public interface IOwnerService
-    {
-        Task<Owner?> GetByIdAsync(Guid id, CancellationToken ct);
-    }
+    Task<Owner?> GetByIdAsync(Guid id, CancellationToken ct);
 }

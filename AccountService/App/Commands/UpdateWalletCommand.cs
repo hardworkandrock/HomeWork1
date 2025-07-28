@@ -1,8 +1,5 @@
-﻿using AccountService.Data;
-using Common.Src;
-using MediatR;
+﻿using MediatR;
 
-namespace AccountService.App.Commands
-{
-    public record UpdateWalletCommand(Guid WalletId, decimal? InterestRate, DateTime? DateClosed) : IRequest; 
-}
+namespace AccountService.App.Commands;
+
+public record UpdateWalletCommand(Guid WalletId, decimal? InterestRate, DateTime? DateClosed) : IRequest;
